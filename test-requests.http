@@ -1,0 +1,34 @@
+### Create Event
+POST localhost:8080/events
+Content-Type: application/json
+
+{
+  "title": "meeting",
+  "dateTime": "2022-11-22T16:07",
+  "location": "conference room 1",
+  "guests": 5
+}
+
+### Get Event
+GET localhost:8080/events
+Content-Type: application/json
+Accept: application/hal+json
+
+> {%
+    client.global.set("event-id", response.body[0].id);
+%}
+
+### Get Event
+GET localhost:8080/events/{{event-id}}
+Content-Type: application/json
+
+### Update Event
+PUT localhost:8080/events/{{event-id}}
+Content-Type: application/json
+
+{
+  "title": "meeting",
+  "dateTime": "2022-11-16T06:42",
+  "location": "conference room 2",
+  "guests": 30
+}

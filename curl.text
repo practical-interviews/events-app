@@ -1,0 +1,22 @@
+curl --location --request POST 'localhost:8080/events' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "title": "meeting",
+  "dateTime": "2022-11-22T16:07",
+  "location": "conference room 1",
+  "guests": 5
+}'
+
+curl --location --request GET 'localhost:8080/events'
+
+curl --location --request GET 'localhost:8080/events/{{event-id}}'
+
+curl --location --request PUT 'localhost:8080/events/{{event-id}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "title": "meeting",
+  "dateTime": "2022-11-22T16:07",
+  "location": "conference room 2",
+  "guests": 20
+}'
+
